@@ -1,15 +1,11 @@
 package com.github.yajatkaul.mega_showdown.mixin;
 
 import com.cobblemon.mod.common.api.pokemon.feature.SpeciesFeatureAssignments;
-import com.cobblemon.mod.common.battles.ShowdownMoveset;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.cobblemon.mod.common.pokemon.Pokemon;
-import com.github.yajatkaul.mega_showdown.gimmick.GimmickTurnCheck;
 import com.github.yajatkaul.mega_showdown.gimmick.MegaGimmick;
 import com.github.yajatkaul.mega_showdown.gimmick.UltraGimmick;
 import com.github.yajatkaul.mega_showdown.networking.client.packet.InteractionWheelPacket;
-import com.github.yajatkaul.mega_showdown.tag.MegaShowdownTags;
-import com.github.yajatkaul.mega_showdown.utils.AccessoriesUtils;
 import dev.architectury.networking.NetworkManager;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;

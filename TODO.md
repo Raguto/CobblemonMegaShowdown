@@ -1,6 +1,7 @@
 # TODO
 - Dynamax first get in pokeball then throw
 - Battle outro for miradon and koriadon
+- Fix rayquaza and mega
 
 # Future
 - Make custom weather datapackable

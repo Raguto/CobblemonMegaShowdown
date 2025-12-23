@@ -6,12 +6,8 @@ import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.github.yajatkaul.mega_showdown.codec.Effect;
 import com.github.yajatkaul.mega_showdown.codec.ZCrystal;
 import com.github.yajatkaul.mega_showdown.config.MegaShowdownConfig;
-import com.github.yajatkaul.mega_showdown.tag.MegaShowdownTags;
-import com.github.yajatkaul.mega_showdown.utils.AccessoriesUtils;
 import com.github.yajatkaul.mega_showdown.utils.AspectUtils;
 import com.github.yajatkaul.mega_showdown.utils.RegistryLocator;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 

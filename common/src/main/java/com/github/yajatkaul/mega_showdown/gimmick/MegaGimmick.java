@@ -9,14 +9,10 @@ import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.github.yajatkaul.mega_showdown.codec.Effect;
 import com.github.yajatkaul.mega_showdown.config.MegaShowdownConfig;
 import com.github.yajatkaul.mega_showdown.gimmick.codec.AspectSetCodec;
-import com.github.yajatkaul.mega_showdown.tag.MegaShowdownTags;
-import com.github.yajatkaul.mega_showdown.utils.AccessoriesUtils;
 import com.github.yajatkaul.mega_showdown.utils.AspectUtils;
 import com.github.yajatkaul.mega_showdown.utils.RegistryLocator;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 
@@ -110,7 +106,7 @@ public record MegaGimmick(
                     "revert_aspects"
             );
             Effect.getEffect("mega_showdown:mega_evolution").applyEffects(pokemon, List.of("mega_evolution=mega"), null);
-        } else if (megaGimmick != null){
+        } else if (megaGimmick != null) {
             AspectUtils.appendRevertDataPokemon(
                     Effect.getEffect("mega_showdown:mega_evolution"),
                     megaGimmick.aspect_conditions.revert_aspects(),

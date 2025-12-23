@@ -8,8 +8,8 @@
 - Fixed multiple mega glitch
 - Fixed Gmax Gengar scaling
 - Added new Meloetta
-- More seat locator's on Rayquaza (Sherbet)
+- More seat locator's on Rayquaza so more people can sit on it now
 - Implemented Koraidon/Miraidon
 - Fixed Scaling with Zygarde/Greninja particles
 - Updated Zygarde's Particles
-- New Mega Evolution Particles (commissioned by xiaoxiao5464)
+- New Mega Evolution Particles (commissioned by @xiaoxiao5464)
