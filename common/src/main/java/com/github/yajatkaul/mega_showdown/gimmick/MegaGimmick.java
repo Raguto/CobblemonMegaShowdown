@@ -3,6 +3,7 @@ package com.github.yajatkaul.mega_showdown.gimmick;
 import com.cobblemon.mod.common.Cobblemon;
 import com.cobblemon.mod.common.api.storage.party.PlayerPartyStore;
 import com.cobblemon.mod.common.api.storage.pc.PCStore;
+import com.cobblemon.mod.common.battles.ShowdownMoveset;
 import com.cobblemon.mod.common.battles.pokemon.BattlePokemon;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.github.yajatkaul.mega_showdown.codec.Effect;
@@ -108,7 +109,7 @@ public record MegaGimmick(
                     pokemon,
                     "revert_aspects"
             );
-            Effect.getEffect("mega_showdown:mega_evolution").applyEffects(pokemon, List.of("mega_evolution=none"), null);
+            Effect.getEffect("mega_showdown:mega_evolution").applyEffects(pokemon, List.of("mega_evolution=mega"), null);
         } else if (megaGimmick != null){
             AspectUtils.appendRevertDataPokemon(
                     Effect.getEffect("mega_showdown:mega_evolution"),
@@ -139,6 +140,10 @@ public record MegaGimmick(
     public static boolean canMega(Pokemon pokemon) {
         ServerPlayer player = pokemon.getOwnerPlayer();
 
+        if (player != null && !GimmickTurnCheck.hasGimmick(ShowdownMoveset.Gimmick.MEGA_EVOLUTION, player)) {
+            return false;
+        }
+
         ItemStack heldItem = pokemon.heldItem();
         MegaGimmick megaGimmick = RegistryLocator.getComponent(MegaGimmick.class, heldItem);
 
@@ -149,27 +154,8 @@ public record MegaGimmick(
         }
 
         if (pokemon.getSpecies().getName().equals("Rayquaza")) {
-            if (player != null &&
-                    !AccessoriesUtils.checkTagInAccessories(player, MegaShowdownTags.Items.MEGA_BRACELET) &&
-                    !AccessoriesUtils.checkTagInAccessories(player, MegaShowdownTags.Items.OMNI_RING)) {
-                player.displayClientMessage(Component.translatable("message.mega_showdown.no_mega_bracelet")
-                        .withStyle(ChatFormatting.RED), true);
-                return false;
-            }
-
-            boolean found = false;
             for (int i = 0; i < 4; i++) {
                 if (pokemon.getMoveSet().getMoves().get(i).getName().equals("dragonascent")) {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                if (player != null) {
-                    player.displayClientMessage(Component.translatable("message.mega_showdown.rayquaza_no_dragonascent")
-                            .withStyle(ChatFormatting.RED), true);
-                    return false;
-                } else {
                     return true;
                 }
             }

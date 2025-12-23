@@ -51,11 +51,8 @@ public abstract class PokemonEntityMixin {
             boolean shouldPokemonMega = SpeciesFeatureAssignments.getFeatures(pokemon.getSpecies()).contains("mega_evolution");
             boolean shouldPokemonUltra = pokemon.getSpecies().getName().equals("Necrozma");
 
-            boolean hasMegaAccessory = AccessoriesUtils.checkTagInAccessories(player, MegaShowdownTags.Items.MEGA_BRACELET) || AccessoriesUtils.checkTagInAccessories(player, MegaShowdownTags.Items.OMNI_RING);
-            boolean hasUltraAccessory = GimmickTurnCheck.hasGimmick(ShowdownMoveset.Gimmick.Z_POWER, player);
-
-            boolean canPokemonMega = MegaGimmick.isMega(pokemon) || MegaGimmick.canMega(pokemon) && hasMegaAccessory;
-            boolean canPokemonUltra = UltraGimmick.isUltra(pokemon) || UltraGimmick.canUltraBurst(pokemon) && hasUltraAccessory;
+            boolean canPokemonMega = MegaGimmick.isMega(pokemon) || MegaGimmick.canMega(pokemon);
+            boolean canPokemonUltra = UltraGimmick.isUltra(pokemon) || UltraGimmick.canUltraBurst(pokemon);
 
             NetworkManager.sendToPlayer(player, new InteractionWheelPacket(shouldPokemonMega, shouldPokemonUltra, canPokemonMega, canPokemonUltra));
         }

@@ -1,5 +1,6 @@
 package com.github.yajatkaul.mega_showdown.gimmick;
 
+import com.cobblemon.mod.common.battles.ShowdownMoveset;
 import com.cobblemon.mod.common.battles.pokemon.BattlePokemon;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.github.yajatkaul.mega_showdown.codec.Effect;
@@ -30,11 +31,7 @@ public class UltraGimmick {
     private static void ultraBurst(Pokemon pokemon) {
         ServerPlayer player = pokemon.getOwnerPlayer();
 
-        if (player != null && !AccessoriesUtils.checkTagInAccessories(player, MegaShowdownTags.Items.Z_RING) && !AccessoriesUtils.checkTagInAccessories(player, MegaShowdownTags.Items.OMNI_RING)) {
-            player.displayClientMessage(Component.translatable("message.mega_showdown.no_z_ring")
-                    .withStyle(ChatFormatting.RED), true);
-            return;
-        } else if (pokemon.getAspects().contains("dawn-fusion")) {
+        if (pokemon.getAspects().contains("dawn-fusion")) {
             pokemon.getPersistentData().putString("necrozma_form", "prism_fusion=dawn");
             AspectUtils.appendRevertDataPokemon(
                     Effect.getEffect("mega_showdown:ultra_burst"),
@@ -85,8 +82,13 @@ public class UltraGimmick {
     }
 
     public static boolean canUltraBurst(Pokemon pokemon) {
+        ServerPlayer player = pokemon.getOwnerPlayer();
         ItemStack heldItem = pokemon.heldItem();
+
         ZCrystal zCrystal = RegistryLocator.getComponent(ZCrystal.class, heldItem);
+
+        if (player != null && !GimmickTurnCheck.hasGimmick(ShowdownMoveset.Gimmick.Z_POWER, player)) return false;
+
         if (zCrystal == null) return false;
 
         if (pokemon.getSpecies().getName().equals("Necrozma") && zCrystal.showdown_item_id().equals("ultranecroziumz")) {
