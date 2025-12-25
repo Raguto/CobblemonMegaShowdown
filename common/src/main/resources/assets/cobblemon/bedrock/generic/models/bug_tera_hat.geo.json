@@ -12,7 +12,12 @@
 			},
 			"bones": [
 				{
+					"name": "bone",
+					"pivot": [0, 0, 0]
+				},
+				{
 					"name": "crown",
+					"parent": "bone",
 					"pivot": [0, 0, 0],
 					"cubes": [
 						{"origin": [-6, 0, -6], "size": [12, 7, 12], "uv": [0, 35]},
@@ -138,6 +143,7 @@
 				},
 				{
 					"name": "crystal",
+					"parent": "bone",
 					"pivot": [0, 5.5, -9.25],
 					"cubes": [
 						{"origin": [-1.8, 0.5, -10.24], "size": [2.8, 2.8, 2], "pivot": [0, 1.5, -9.25], "rotation": [0, 0, 45], "uv": [78, 51]},

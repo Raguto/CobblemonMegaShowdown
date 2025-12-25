@@ -15,17 +15,17 @@
     },
     {
       "aspects": ["msd:tera_fire"],
-      "model": "cobblemon:psychic_tera_hat.geo",
+      "model": "cobblemon:fire_tera_hat.geo",
       "texture": "cobblemon:textures/tera_hat/fire_tera_hat.png"
     },
     {
       "aspects": ["msd:tera_bug"],
-      "model": "cobblemon:psychic_tera_hat.geo",
+      "model": "cobblemon:bug_tera_hat.geo",
       "texture": "cobblemon:textures/tera_hat/bug_tera_hat.png"
     },
     {
       "aspects": ["msd:tera_grass"],
-      "model": "cobblemon:psychic_tera_hat.geo",
+      "model": "cobblemon:grass_tera_hat.geo",
       "texture": "cobblemon:textures/tera_hat/grass_tera_hat.png"
     }
   ]

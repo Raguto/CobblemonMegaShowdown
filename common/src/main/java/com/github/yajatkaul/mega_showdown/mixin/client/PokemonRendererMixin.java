@@ -114,7 +114,6 @@ public class PokemonRendererMixin {
             if (MegaShowdownConfig.legacyTeraEffect) {
                 vertexConsumer = buffer.getBuffer(RenderType.entityCutout(texture));
             } else {
-                MSDRenderTypes.teraShader.safeGetUniform("TeraTint").set(GlowHandler.getTeraColor(aspect.get()));
                 vertexConsumer = buffer.getBuffer(MSDRenderTypes.pokemonShader(texture));
             }
 
