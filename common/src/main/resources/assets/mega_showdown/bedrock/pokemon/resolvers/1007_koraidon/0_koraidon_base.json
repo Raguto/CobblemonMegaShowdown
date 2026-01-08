@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:koraidon",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "mega_showdown:koraidon",
+      "model": "mega_showdown:koraidon.geo",
+      "texture": "mega_showdown:textures/pokemon/1007_koraidon/koraidon.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "mega_showdown:textures/pokemon/1007_koraidon/koraidon_shiny.png"
+    }
+  ]
+}

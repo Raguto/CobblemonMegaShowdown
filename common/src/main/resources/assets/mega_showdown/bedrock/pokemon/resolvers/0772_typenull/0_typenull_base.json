@@ -1,0 +1,20 @@
+{
+  "species": "cobblemon:typenull",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "mega_showdown:typenull",
+      "model": "mega_showdown:typenull.geo",
+      "texture": "mega_showdown:textures/pokemon/0772_typenull/typenull.png",
+      "layers": []
+    },
+    {
+      "aspects": [
+        "shiny"
+      ],
+      "texture": "mega_showdown:textures/pokemon/0772_typenull/typenull_shiny.png",
+      "layers": []
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "species": "cobblemon:volcanion",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "mega_showdown:volcanion",
+      "model": "mega_showdown:volcanion.geo",
+      "texture": "mega_showdown:textures/pokemon/0721_volcanion/volcanion.png",
+      "layers": []
+    },
+    {
+      "aspects": ["shiny"],
+      "texture": "mega_showdown:textures/pokemon/0721_volcanion/volcanion_shiny.png"
+    }
+  ]
+}
