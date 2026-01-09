@@ -71,7 +71,7 @@ public record MegaGimmick(
                         pokemon,
                         "battle_end_revert"
                 );
-            } else if (megaGimmick.aspect_conditions.validate_apply(pokemon)) {
+            } else {
                 Effect.getEffect("mega_showdown:mega_evolution").applyEffectsBattle(pokemon, megaGimmick.aspect_conditions.apply_aspects(), null, battlePokemon);
 
                 AspectUtils.appendRevertDataPokemon(
