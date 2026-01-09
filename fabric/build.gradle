@@ -54,39 +54,3 @@ shadowJar {
 remapJar {
     input.set shadowJar.archiveFile
 }
-
-task deploy {
-    dependsOn tasks.named('remapJar')
-    
-    doLast {
-        def modsDir = file('D:/instances/1.21.1(2)/minecraft/mods')
-
-        if (!modsDir.exists()) {
-            logger.warn("deploy: target mods directory does not exist: ${modsDir}")
-            return
-        }
-
-        modsDir.listFiles().each { f ->
-            try {
-                if (f.name.contains('mega_showdown') && f.name.endsWith('.jar')) {
-                    logger.lifecycle("deploy: deleting old jar from mods folder: ${f.name}")
-                    f.delete()
-                }
-            } catch (Throwable e) {
-                logger.warn("deploy: failed to delete ${f.name}: ${e.message}")
-            }
-        }
-
-        def remapJar = tasks.named('remapJar').get()
-        copy {
-            from remapJar.archiveFile
-            into modsDir
-        }
-
-        logger.lifecycle("deploy: copied ${remapJar.archiveFile.get().asFile.name} to ${modsDir}")
-    }
-}
-
-tasks.named('build') {
-    finalizedBy deploy
-}
