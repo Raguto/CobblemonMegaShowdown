@@ -4,6 +4,6 @@
   "aspect": {
     "apply_aspects": ["mega_evolution=mega"],
     "revert_aspects": ["mega_evolution=none"],
-    "blacklist_forms_apply": ["Galar"]
+    "blacklist_aspects_apply": [["galarian"]]
   }
 }

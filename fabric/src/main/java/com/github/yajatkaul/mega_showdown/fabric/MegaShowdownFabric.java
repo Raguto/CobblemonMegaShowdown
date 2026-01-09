@@ -30,7 +30,8 @@ public final class MegaShowdownFabric implements ModInitializer {
     public void onInitialize() {
         MegaShowdown.init();
         DatapackRegistry.register();
-        generateModWorldGen();
+        // Disabled: worldgen data files for max_mushroom_placed_key don't exist
+        // generateModWorldGen();
 
         ServerLifecycleEvents.SERVER_STARTED.register((server) -> Cobblemon.INSTANCE.getShowdownThread().queue(showdownService -> {
             if (showdownService instanceof GraalShowdownService service) {

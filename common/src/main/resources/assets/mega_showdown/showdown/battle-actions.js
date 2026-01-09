@@ -2347,6 +2347,14 @@ class BattleActions {
   canMegaEvo(pokemon) {
     const species = pokemon.species;
     const item = pokemon.getItem();
+    
+    // Block regional forms from mega evolving (e.g., Galarian Slowbro)
+    // Regional forms have forme names like "Galar", "Alola", "Hisui", "Paldea"
+    const regionalFormes = ["Galar", "Alola", "Hisui", "Paldea"];
+    if (species.forme && regionalFormes.includes(species.forme)) {
+      return null;
+    }
+    
     if (
       species.baseSpecies === "Rayquaza" &&
       (pokemon.terastallized || pokemon.getItem().zMove)
@@ -2374,7 +2382,7 @@ class BattleActions {
     ) {
       return megaForme.name;
     }
-    // Also check baseSpecies for custom species variants (e.g. Pokemon with modified types)
+    // check baseSpecies for custom species variants (Pokemon with modified types)
     const nameToCheck = species.baseSpecies || species.name;
     if (
       (item.megaEvolves?.includes(species.name) || item.megaEvolves?.includes(nameToCheck)) &&
